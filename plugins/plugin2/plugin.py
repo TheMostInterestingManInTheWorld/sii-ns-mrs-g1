@@ -1,5 +1,5 @@
-from plugin_interface import PluginInterface
-from plugin_specification import PluginSpecification
+from plugin_framework.plugin_interface import PluginInterface
+from plugin_framework.plugin_specification import PluginSpecification
 
 class Plugin(PluginInterface):
     def __init__(self, plugin_specification):
