@@ -17,9 +17,9 @@ class PluginManager:
 
     
     def install(self, path="plugins"):
-        for dir in os.scandir(path):
-            if dir.is_dir() and (dir.name != "__pycache__"):
-                package_path = os.path.join(path, dir.name)
+        for d in os.scandir(path):
+            if d.is_dir() and (d.name != "__pycache__"):
+                package_path = os.path.join(path, d.name)
                 plugin_path = os.path.join(package_path, "plugin.py")
                 spec_path = os.path.join(package_path, "spec.json")
                 with open(spec_path, "r") as fp:

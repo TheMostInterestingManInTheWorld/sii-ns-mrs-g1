@@ -1,20 +1,21 @@
 # from plugin1.plugin import Plugin
 from plugin_framework.plugin_specification import PluginSpecification
 from plugin_framework.plugin_manager import *
-# from PySide2 import QtWidgets
+from PySide2 import QtWidgets
+from interface.main_window import MainWindow
 import sys
 
 
 
-plugin_manager = PluginManager()
+# plugin_manager = PluginManager()
 
-plugin_manager.install()
-print(len(plugin_manager._plugins))
+# plugin_manager.install()
+# print(len(plugin_manager._plugins))
 
-# app = QtWidgets.QApplication(sys.argv)
-# mb = QtWidgets.QMessageBox(None, "Upozorenje", "Tekst")
-# mb.exec_()
-# sys.exit(app.exec_())
 
+app = QtWidgets.QApplication(sys.argv)
+main_window = MainWindow()
+main_window.show()
+sys.exit(app.exec_())
 
 
