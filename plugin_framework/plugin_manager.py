@@ -1,5 +1,6 @@
 import json
 import os
+from plugin_framework.plugin_specification import PluginSpecification
 from importlib import import_module
 from inspect import getmembers, isclass
 
@@ -27,7 +28,7 @@ class PluginManager:
                     plugin_module = import_module(plugin_path.replace(os.path.sep, ".").rstrip(".py"))
                     class_members = getmembers(plugin_path, isclass)
                     if len(class_members) == 1:
-                        plugin = plugin_module.Plugin(spec)
+                        plugin = plugin_module.Plugin(PluginSpecification(spec))
                         self.activate(plugin)
 
     def uninstall(self, plugin):

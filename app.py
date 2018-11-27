@@ -7,14 +7,14 @@ import sys
 
 
 
-# plugin_manager = PluginManager()
+plugin_manager = PluginManager()
 
-# plugin_manager.install()
+plugin_manager.install()
 # print(len(plugin_manager._plugins))
 
 
 app = QtWidgets.QApplication(sys.argv)
-main_window = MainWindow()
+main_window = MainWindow(plugin_manager=plugin_manager)
 main_window.show()
 sys.exit(app.exec_())
 

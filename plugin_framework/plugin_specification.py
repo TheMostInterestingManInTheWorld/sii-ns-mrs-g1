@@ -1,9 +1,28 @@
 class PluginSpecification:
-    def __init__(self, author, description, version, app_version, release_notes, size):
-        self._author = author
-        self._description = description
-        self._version = version
-        self._app_version = version
-        self._release_notes = release_notes
-        self._size = size
+    def __init__(self, spec):
+        self._spec = spec
+
+    @property
+    def author(self):
+        return self._spec.get("author", "")
+
+    @property
+    def description(self):
+        return self._spec.get("description", "")
+    
+    @property
+    def version(self):
+        return self._spec.get("version", "1.0.0")
+        
+    @property
+    def app_version(self):
+        return self._spec.get("app_version", "1.0.0")
+    
+    @property
+    def release_notes(self):
+        return self._spec.get("release_notes", "")
+
+    @property
+    def size(self):
+        return self._spec.get("size", 0.0)
 
