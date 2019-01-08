@@ -7,3 +7,6 @@ class PluginInterface:
 
     def deactivate(self):
         raise NotImplementedError()
+
+    def get_widget(self):
+        raise NotImplementedError("Nije implementirana metoda get_widget!")

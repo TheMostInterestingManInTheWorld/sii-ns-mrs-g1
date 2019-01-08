@@ -1,6 +1,7 @@
 class PluginSpecification:
     def __init__(self, spec):
         self._spec = spec
+        # FIXME: fali symbolic_name
 
     @property
     def author(self):

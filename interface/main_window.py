@@ -57,7 +57,13 @@ class MainWindow(QtWidgets.QMainWindow):
         print(self.central_widget.toPlainText())
 
     def _on_plugin_settings(self):
-        result = PluginsDialog(self, self.plugin_manager).exec_()
+        PluginsDialog(self, self.plugin_manager).exec_()
+
+    def set_central_widget(self, widget, toolbar=None, menu=None):
+        # FIXME: prepraviti da se ovde prosledjuje samo string symbolic_name, a na osnovu toga se odabere plugin i kreira widget
+        self.setCentralWidget(widget)
+        self.toolbar.addActions(toolbar.actions()) if toolbar is not None else None
+        self.menu_bar.addMenu(menu) if menu is not None else None
 
 
 

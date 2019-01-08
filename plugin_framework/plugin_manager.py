@@ -15,7 +15,6 @@ class PluginManager:
     def deactivate(self, plugin):
         plugin.deactivate()
         self._plugins.remove(plugin)
-
     
     def install(self, path="plugins"):
         for d in os.scandir(path):
@@ -35,6 +34,19 @@ class PluginManager:
         # deaktivirati plugin
         # izmenimo specifikaciju konfiguracione datoteke da je plugin obrisan
         self.deactivate(plugin)
+
+    def get_by_symbolic_name(self, symbolic_name):
+        """
+        Vraca plugin koji ima naziv symbolic_name. Ukoliko se podesi da vise pluginova ima isti symbolic_name, vraca
+        se samo prvi.
+
+        :param symbolic_name: naziv spram kog pretrazujemo sve dostupne pluginove.
+        :type symbolic_name: str
+        :returns: Plugin -- pronadjeni plugin.
+        :raises: IndexError -- ukoliko ne postoji ni jedan plugin koji je zadovoljio filter.
+        """
+        # TODO: dodati simbolicko ime pluginu
+        return list(filter(lambda x: x.symbolic_name == symbolic_name, self._plugins))[0]
     
 
         
