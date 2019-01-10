@@ -27,7 +27,7 @@ class PluginManager:
                     plugin_module = import_module(plugin_path.replace(os.path.sep, ".").rstrip(".py"))
                     class_members = getmembers(plugin_path, isclass)
                     if len(class_members) == 1:
-                        plugin = plugin_module.Plugin(PluginSpecification(spec))
+                        plugin = plugin_module.Main(PluginSpecification(spec))
                         self.activate(plugin)
 
     def uninstall(self, plugin):
@@ -45,8 +45,8 @@ class PluginManager:
         :returns: Plugin -- pronadjeni plugin.
         :raises: IndexError -- ukoliko ne postoji ni jedan plugin koji je zadovoljio filter.
         """
-        # TODO: dodati simbolicko ime pluginu
-        return list(filter(lambda x: x.symbolic_name == symbolic_name, self._plugins))[0]
+        print(self._plugins[0]._plugin_specification.symbolic_name, symbolic_name)
+        return list(filter(lambda x: x._plugin_specification.symbolic_name == symbolic_name, self._plugins))[0]
     
 
         

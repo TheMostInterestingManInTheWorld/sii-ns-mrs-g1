@@ -1,7 +1,6 @@
 class PluginSpecification:
     def __init__(self, spec):
         self._spec = spec
-        # FIXME: fali symbolic_name
 
     @property
     def author(self):
@@ -14,6 +13,10 @@ class PluginSpecification:
     @property
     def version(self):
         return self._spec.get("version", "1.0.0")
+
+    @property
+    def symbolic_name(self):
+        return self._spec.get("symbolic_name", "rs.ac.singidunum.plugin")
         
     @property
     def app_version(self):

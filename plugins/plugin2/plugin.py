@@ -1,14 +1,16 @@
-from plugin_framework.plugin_interface import PluginInterface
-from plugin_framework.plugin_specification import PluginSpecification
+from plugin_framework.plugin import Plugin
+from PySide2 import QtWidgets
 
-class Plugin(PluginInterface):
+class Main(Plugin):
     def __init__(self, plugin_specification):
-        super().__init__()
-        self._plugin_specification = plugin_specification
+        super().__init__(plugin_specification)
 
     def activate(self):
         print("Hello everyone")
     
     def deactivate(self):
         print("Goodbye everyone")
+
+    def get_widget(self, parent=None):
+        return QtWidgets.QTextEdit(parent), None, None
 
